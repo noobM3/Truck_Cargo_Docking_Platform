@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>老司机-简单快捷的车货对接平台</title>
+</head>
+<body >
+    
+<!--     <div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-1">    
+        <img src="pictures/bg1.jpg" height="100%" width="100%"/>    
+    </div>  -->
+    <form action="transport/search.do" method="get">
+    <table align="center" border="1">
+        <tr align="center" valign="middle">
+            <td>物流单号:</td>
+            <td><input type="text" id="trackingno" name="trackingno" ></td>
+        </tr>
+        <tr align="center" valign="middle">
+            <td colspan="2"><input type="image" src="pictures/search0.svg"></td>
+        </tr>
+    </table>
+    </form>
+    
+    <form action="line/search.do" method="get">
+    <table align="center" border="1">
+        <tr align="center" valign="middle">
+            <td rowspan="2">快速询价：</td>
+            <td>出发地：</td>
+            <td><input type="text" id="line_start" name="line_start"></td>
+        </tr>
+        <tr align="center" valign="middle">
+            <td>目的地：</td>
+            <td><input type="text" id="line_end" name="line_end"></td>
+        </tr>        
+        <tr align="center" valign="middle">
+            <td colspan="3"><input type="image" src="pictures/searchPrice.svg"></td>
+        </tr>
+    </table>
+    </form>    
+    
+    
+    
+    <script type="text/javascript">
+        
+    </script>
+    
+    
+    <a href="/owner/login.do" >注册</a>
+    <a href="/owner/">登录</a>
+    <a href="index1.html">我是承运商</a>
+</body>
+</html>

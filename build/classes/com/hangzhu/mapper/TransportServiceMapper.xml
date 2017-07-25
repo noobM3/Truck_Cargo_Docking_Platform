@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hangzhu.mapper.TransportServiceMapper">
+  <resultMap  id="transportMap"  type="Transport">
+    <result column="trackingno"  property="trackingno" />
+    <result column="lno"  property="lno" />
+    <result column="ono"  property="ono" />
+    <result column="cno"  property="cno" />
+    <result column="starting"  property="starting" />
+    <result column="destination"  property="destination" />
+    <result column="start_time"  property="start_time" />
+    <result column="end_time"  property="end_time" />
+  </resultMap>
+
+    <!-- 添加用户 -->
+  <insert id="addTransport" parameterType="Transport">
+    insert into transport values(#{trackingno},#{lno},#{ono},#{cno},
+                          #{starting},#{destination},#{start_time},#{end_time})
+  </insert>
+  
+  <select id="getTransports"  resultMap="transportMap">
+    select * from transport
+  </select>  
+  
+  <select id="checkTransport" parameterType="String" resultMap="transportMap">
+    select * from transport where trackingno=#{trackingno}
+  </select>  
+  
+  <delete id="deleteTransport"  parameterType="String">
+    delete from transport where trackingno=#{trackingno}
+  </delete>
+    
+</mapper>

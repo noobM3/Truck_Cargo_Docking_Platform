@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hangzhu.mapper.LineServiceMapper">
+  <resultMap  id="lineMap"  type="Line">
+    <result column="lname"  property="lname" />
+    <result column="line_no"  property="line_no" />
+    <result column="line_start"  property="line_start" />
+    <result column="line_end"  property="line_end" />
+    <result column="weight"  property="weight" />
+    <result column="price"  property="price" />
+    <result column="time"  property="time" />
+    <result column="used"  property="used" />
+  </resultMap>
+    
+    <!-- 添加用户 -->
+  <insert id="addLine" parameterType="Line">
+    insert into line values(#{lname},#{line_no},#{line_start},#{line_end},
+                            #{weight},#{price},#{time},#{used})
+  </insert>
+  
+  <select id="getLines"  resultMap="lineMap">
+    select * from line
+  </select>  
+  
+  <select id="checkLines"  resultMap="lineMap">
+    select * from line where line_start=#{line_start} and line_end=#{line_end}
+  </select>  
+  
+  <delete id="deleteLine"  parameterType="String">
+    delete from transport where lname=#{lname} and line_no=#{line_no}
+  </delete>
+    
+</mapper>
