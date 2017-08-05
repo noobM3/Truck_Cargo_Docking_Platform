@@ -8,19 +8,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="oname" property="oname" />
 		<result column="sex" property="sex" />
 		<result column="phone" property="phone" />
+		<result column="password" property="password" />
 		<result column="cer" property="cer" />
 	</resultMap>
 
-	<select id="checkOwner" parameterType="String" resultMap="ownerMap">
-	   select * from owner where ono=#{ono}
+	<select id="checkOwner" resultMap="ownerMap">
+	   select * from owner where ono=#{ono} and password=#{password}
 	</select>
 
 	<insert id="addOwner" parameterType="Owner">
-		insert into Owner values(#{ono},#{oname},#{sex},#{phone},#{cer})
+		insert into Owner values(#{ono},#{oname},#{sex},#{phone},#{password},#{cer})
 	</insert>
 
 	<update id="updatePhone">
 		update Owner set phone=#{n_phone} where ono=#{ono}
 	</update>
-
+    
+    <update id="updatePw">
+        update Owner set password=#{n_pw} where ono=#{ono}
+    </update>
+    
 </mapper>

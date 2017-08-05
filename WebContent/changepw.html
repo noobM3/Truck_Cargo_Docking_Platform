@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改密码</title>
+
+<!-- 引入JQuery -->
+<script type="text/javascript" src="jquery-easyui/jquery.min.js"></script>
+<!-- 引入EasyUI -->
+<script type="text/javascript" src="jquery-easyui/jquery.easyui.min.js"></script>
+<!-- 引入EasyUI的中文国际化js，让EasyUI支持中文 -->
+<script type="text/javascript" src="jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+<!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" href="jquery-easyui/themes/default/easyui.css" type="text/css"/>
+<!-- 引入EasyUI的图标样式文件-->
+<link rel="stylesheet" href="jquery-easyui/themes/icon.css" type="text/css"/>
+
+</head>
+<body bgcolor="#F0F8FF">
+    <div id="win" class="easyui-window" title="修改密码" style="width:320px;height:180px;">
+    <form id="cpw" style="padding:10px 20px 10px 40px;" action="owner/cpw.do">
+<!--         <table>
+            <tr>
+                <td>旧密码</td>
+                <td>：<input id="opw" name="opw" type="password"></td>
+            </tr>
+            <tr>
+                <td>新密码</td>
+                <td>：<input id="npw1" name="npw1" type="password"></td>
+            </tr>
+            <tr>
+                <td>确认新密码</td>
+                <td>：<input id="npw2" name="npw2" type="password"></td>
+            </tr>
+        </table> -->
+        <table>
+            <tr>
+                <td>新密码</td>
+                <td>：<input id="npw1" name="npw1" validType="length[6,32]" class="easyui-validatebox" required="true" type="password" value=""/></td>
+            </tr>
+            <tr>
+                <td>确认新密码</td>
+                <td>：<input type="password" name="npw2" id="npw2" required="true" class="easyui-validatebox"  validType="equalTo['#npw1']" invalidMessage="两次输入密码不匹配"/></td>
+            </tr>
+        </table>
+    </form>
+        <div style="padding:5px;text-align:center;">
+            <a href="#" class="easyui-linkbutton" icon="icon-ok" onclick="submitform()">确定</a>
+            <a href="#" class="easyui-linkbutton" icon="icon-cancel" onclick="clearform()">重置</a>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    $.extend($.fn.validatebox.defaults.rules, {    
+        /* 必须和某个字段相等 */  
+        equalTo: {  
+            validator:function(value,param){  
+                return $(param[0]).val() == value;  
+            },  
+            message:'字段不匹配'  
+        }  
+                 
+    }); 
+    
+    $('#win').window({
+        collapsible:false,
+        minimizable:false,
+        maximizable:false
+    });
+    
+    function submitform()
+    {
+        document.getElementById("cpw").submit();    	
+    }
+    
+    function clearform()
+    {
+    	$('#cpw').form('clear');
+    }
+    
+    
+    </script>	
+</body>
+</html>    	
+    	
+    	

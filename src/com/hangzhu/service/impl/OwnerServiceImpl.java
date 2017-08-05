@@ -29,4 +29,16 @@ public class OwnerServiceImpl implements OwnerService
 		osm.updatePhone(ono, n_phone);
 	}
 
+	@Override
+	public Owner checkOwner(String ono, String password)
+	{
+		return osm.checkOwner(ono, password);
+	}
+
+	@Override
+	public void updatePw(String ono, String n_pw)
+	{
+		osm.updatePw(ono, n_pw);
+	}
+
 }

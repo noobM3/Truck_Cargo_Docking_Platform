@@ -11,13 +11,25 @@
      <context:component-scan base-package="com.hangzhu" />
      <mvc:annotation-driven />
     
+     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="stringHttpMessage"/>
+                <ref bean="jsonConverter"/>
+            </list>
+        </property> 
+    </bean>
     
     
        <!-- 支持重定向 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-           <property name="prefix" value="/" />
+           <property name="prefix" value="/WEB-INF/jsp/" />
            <property name="suffix" value=".jsp" />
      </bean>
+    
+    
     
    <import resource="classpath:beans.xml"/>
     

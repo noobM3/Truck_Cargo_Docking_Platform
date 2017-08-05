@@ -5,13 +5,13 @@ public class Logistics
 {
 	private String	lno;	// 公司编号
 	private String	lname;	//
-	int				cer;	// 认证状态
-	int				scale;	// 公司规模
+	private int		cer;	// 认证状态
+	private int		scale;	// 公司规模
 	private String	l_phone;// 联系电话
 	private String	email;	// 电子邮箱
 	private String	address;// 地址
-	int				s_time;	// 成功承运次数
-	int				f_time;	// 有异议承运次数
+	private int		s_time;	// 成功承运次数
+	private int		f_time;	// 有异议承运次数
 	
 	public Logistics()
 	{
